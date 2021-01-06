@@ -179,7 +179,7 @@
                 <div class="nk-cov-wg4">
                     <div class="nk-cov-wg4-aside" style="border-color: #1d2d40 !important;">
                         <div class="nk-cov-wg4-aside-head">
-                            <h6 class="nk-cov-wg4-aside-title">Cases by Vaccines</h6>
+                            <h6 class="nk-cov-wg4-aside-title">Vaccination by Country</h6>
                             <div class="nk-cov-wg4-aside-action mr-n2">&nbsp;</div>
                         </div>
                         <div class="nk-cov-wg4-aside-body" data-simplebar>
