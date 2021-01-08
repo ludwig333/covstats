@@ -67,9 +67,10 @@
                                     <div class="card card-bordered card-full">
                                         <div  class="card-inner">
                                             <div class="nk-cov-data">
-                                                <h6 class="overline-title-alt fw-normal">Active Cases</h6>
-                                                <div class="amount amount-xs text-purple">{{ $data->active }}</div>
-                                                
+                                                <h6 class="overline-title-alt fw-normal">TOTAL VACCINATED</h6>
+
+                                                <div class="amount amount-xs text-purple">{{ $vaccine }}</div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -119,7 +120,27 @@
                         --}}
                     </div>
                     <div class="row justify-between g-gs">
-
+                        <div class="col-lg-3 col-sm-6">
+                                    <div class="card card-bordered card-full">
+                                        <div  class="card-inner">
+                                            <div class="nk-cov-data">
+                                                <h6 class="overline-title-alt fw-normal">Active Cases</h6>
+                                                <div class="amount amount-xs text-purple">{{ $data->active }}</div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div> 
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card card-bordered card-full">
+                                <div  class="card-inner">
+                                    <div class="nk-cov-data">
+                                        <h6 class="overline-title-alt fw-normal">Death Rate</h6>
+                                        <div class="amount amount-xs text-danger">{{ $data->rateDeath }}% </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
                         <div class="col-lg-3 col-sm-6">
                             <div class="card card-bordered card-full">
                                 <div  class="card-inner">
@@ -130,26 +151,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card card-bordered card-full">
-                                <div  class="card-inner">
-                                    <div class="nk-cov-data">
-                                        <h6 class="overline-title-alt fw-normal">Death Rate</h6>
-                                        <div class="amount amount-xs text-danger">{{ $data->rateDeath }}% </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card card-bordered card-full">
-                                <div  class="card-inner">
-                                    <div class="nk-cov-data">
-                                        <h6 class="overline-title-alt fw-normal">Recovery Rate</h6>
-                                        <div class="amount amount-xs text-success">{{ $data->rateRecover }}% </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col-lg-3 col-sm-6">
                             <div class="card card-bordered card-full">
                                 <div  class="card-inner">

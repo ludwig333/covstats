@@ -199,7 +199,7 @@
                         @if(count($vaccines)>0)
                             @foreach($vaccines as $item)
                                 <li>
-                                    <a class="nk-cov-wg4-list-item" data-id="">
+                                    <a class="nk-cov-wg4-list-item nk-tb-item{{ ( !($item->location=='xz'||$item->location=='xd')) ? ' get-details' : '' }}" data-id=""  data-location="{{ $item->location }}">
                                         <span class="title">{{ $item->location }}</span>
                                         <span class="count">{{ number_format($item->total_vaccinations) }}</span>
                                     </a>

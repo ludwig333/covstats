@@ -104,7 +104,7 @@
 	                        @foreach($countries as $code => $locat)
                             	@if($code !='world' && $locat['cases'])
 
-                            	<tr class="nk-tb-item{{ ($locat['cases'] >= 50 && !($code=='xz'||$code=='xd')) ? ' get-details' : '' }}" data-code="{{ strtolower($locat['country']['code']) }}">
+                            	<tr class="nk-tb-item{{ ($locat['cases'] >= 50 && !($code=='xz'||$code=='xd')) ? ' get-details' : '' }}" data-code="{{ strtolower($locat['country']['code']) }}" data-location="{{ $locat['country']['name'] }}">
 	                                <td class="nk-tb-col nk-tb-col-country">
 	                                    <div class="tb-country">
 	                                        <img class="flag" src="{{ asset('images/flags/'.strtolower($locat['country']['code']).'.png') }}" alt="{{ $locat['country']['name'] }}">

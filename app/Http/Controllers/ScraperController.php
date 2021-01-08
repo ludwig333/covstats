@@ -68,6 +68,8 @@ class ScraperController extends Controller
             }); 
             array_push($array,$data);
         }
+        var_dump($array);
+        die();
         // foreach ($array as $key => $value) {
         // var_dump($value);
         // die();

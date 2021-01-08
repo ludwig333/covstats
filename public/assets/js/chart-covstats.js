@@ -320,7 +320,8 @@
         $trigger.on('click', function() {
             var $self = $(this);
             $.get(countryUri, {
-                code: $self.data('code')
+                code: $self.data('code'),
+                location:$self.data('location')
             }).done(function(res){
                 if(res.modal) {
                     var $modal = $('#ajax-modal').html('');
