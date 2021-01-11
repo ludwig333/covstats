@@ -66,6 +66,8 @@
 	                    </div>
 	                    <div class="card-tools">
 	                        <ul class="card-tools-nav">
+	                            <li class="" id="lastweek"><a class="link" href="#">Last Week</a></li>	                        	
+	                            <li class="" id="twodaysago"><a class="link" href="#">2Days Ago</a></li>	                        	
 	                        	<li class="" id="yesterday"><a class="link" href="#">Yesterday</a></li>
 	                            <li class="active" id="today"><a class="link" href="#">Now</a></li>
 	                        </ul>
@@ -340,7 +342,12 @@
 		if($("#today").hasClass( "active" )){
 			  	$("#today").removeClass('active');
 			  }	
-
+		if($("#lastweek").hasClass( "active" )){
+			  	$("#lastweek").removeClass('active');
+			  }
+		if($("#twodaysago").hasClass( "active" )){
+			  	$("#twodaysago").removeClass('active');
+			  }			  
                $.ajaxSetup({
                   headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -353,7 +360,7 @@
                      date: 'yesterday'
                   },
                   success: function(result){
-                     console.log(result.tbody);
+
                     if(result.tbody) {
                     $('#tbody').html(result.tbody);
                 }
@@ -368,7 +375,12 @@
 		if($("#yesterday").hasClass( "active" )){
 			  	$("#yesterday").removeClass('active');
 			  }	
-
+		if($("#lastweek").hasClass( "active" )){
+			  	$("#lastweek").removeClass('active');
+			  }
+		if($("#twodaysago").hasClass( "active" )){
+			  	$("#twodaysago").removeClass('active');
+			  }	
                $.ajaxSetup({
                   headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -381,12 +393,92 @@
                      date: 'today'
                   },
                   success: function(result){
-                     console.log(result.tbody);
+
+                    if(result.tbody) {
+                    $('#tbody').html(result.tbody);
+                }
+                  }});			  			  
+});
+	$( "#twodaysago" ).click(function() {
+		event.preventDefault();
+		if(!$(this).hasClass( "active" )){
+			  	$(this).addClass('active');
+			  }
+		if($("#yesterday").hasClass( "active" )){
+			  	$("#yesterday").removeClass('active');
+			  }	
+		if($("#lastweek").hasClass( "active" )){
+			  	$("#lastweek").removeClass('active');
+			  }
+		if($("#today").hasClass( "active" )){
+			  	$("#today").removeClass('active');
+			  }	
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ url('/countries-ajax') }}",
+                  method: 'post',
+                  data: {
+                     date: 'twodaysago'
+                  },
+                  success: function(result){
+
                     if(result.tbody) {
                     $('#tbody').html(result.tbody);
                 }
                   }});			  			  
 });	
+	$( "#lastweek" ).click(function() {
+		event.preventDefault();
+		if(!$(this).hasClass( "active" )){
+			  	$(this).addClass('active');
+			  }
+		if($("#yesterday").hasClass( "active" )){
+			  	$("#yesterday").removeClass('active');
+			  }	
+		if($("#today").hasClass( "active" )){
+			  	$("#today").removeClass('active');
+			  }
+		if($("#twodaysago").hasClass( "active" )){
+			  	$("#twodaysago").removeClass('active');
+			  }	
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ url('/countries-ajax') }}",
+                  method: 'post',
+                  data: {
+                     date: 'lastweek'
+                  },
+                  success: function(result){
+
+                    if(result.tbody) {
+                    $('#tbody').html(result.tbody);
+                }
+                  }});			  			  
+});		
+	function opencountrymodal(code,location) {
+            $.get(countryUri, {
+                code: code,
+                location:location
+            }).done(function(res){
+                if(res.modal) {
+                    var $modal = $('#ajax-modal').html('');
+                    $modal.html(res.modal);
+                    $modal = $modal.find('.modal');
+                    if($modal.length > 0){
+                        $modal.modal('show');
+                    }
+                }
+            });
+    
+}
 </script>
 @endif
 @endpush

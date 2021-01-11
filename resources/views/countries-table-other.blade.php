@@ -1,7 +1,7 @@
 	                        @foreach($countries as $locat)
                             	@if($locat->code !='global' && $locat->cases)
 
-                            	<tr class="nk-tb-item{{ ($locat->cases >= 50 && !($locat->code=='xz'||$locat->code=='xd')) ? ' get-details' : '' }}" data-code="{{ strtolower($locat->code) }}" data-location="{{ $locat->name }}">
+                            	<tr class="nk-tb-item{{ ($locat->cases >= 50 && !($locat->code=='xz'||$locat->code=='xd')) ? ' get-details' : '' }}" data-code="{{ strtolower($locat->code) }}" data-location="{{ $locat->name }}" onclick="opencountrymodal('{{ strtolower($locat->code) }}','{{ $locat->name }}');">
 	                                <td class="nk-tb-col nk-tb-col-country">
 	                                    <div class="tb-country">
 	                                        <img class="flag" src="{{ asset('images/flags/'.strtolower($locat->code).'.png') }}" alt="{{ $locat->name }}">

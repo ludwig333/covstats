@@ -71,13 +71,23 @@ class FrontEndController extends Controller
         $ajax['tbody'] = view('countries-table', compact('countries'))->render();   
        
         }
-        else{
+        else if($request->date == "yesterday"){
         $countries = countries::whereDate('created_at',Carbon::yesterday())->orderBy('cases', 'DESC')->get();
                  \Log::info($countries);
         $ajax['tbody'] = view('countries-table-other', compact('countries'))->render(); 
        
         }
-     
+        else if($request->date == "twodaysago"){
+        $countries = countries::whereDate('created_at',Carbon::today()->subDays(2))->orderBy('cases', 'DESC')->get();
+                 \Log::info($countries);
+        $ajax['tbody'] = view('countries-table-other', compact('countries'))->render();        
+        }
+        else{
+        $countries = countries::whereDate('created_at',Carbon::today()->subDays(7))->orderBy('cases', 'DESC')->get();
+                 \Log::info($countries);
+        $ajax['tbody'] = view('countries-table-other', compact('countries'))->render();        
+        }
+
         return response()->json((empty($ajax) ? [] : $ajax));
     }
 
