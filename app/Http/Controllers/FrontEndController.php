@@ -69,13 +69,13 @@ class FrontEndController extends Controller
         if($request->date == "today"){
         $countries = $CovidData->countries_data();
         $ajax['tbody'] = view('countries-table', compact('countries'))->render();   
-        \Log::info($countries);
+       
         }
         else{
-        $countries = countries::orderBy('cases', 'DESC')->get();
-                
+        $countries = countries::whereDate('created_at',Carbon::yesterday())->orderBy('cases', 'DESC')->get();
+                 \Log::info($countries);
         $ajax['tbody'] = view('countries-table-other', compact('countries'))->render(); 
-        \Log::info($countries);
+       
         }
      
         return response()->json((empty($ajax) ? [] : $ajax));
