@@ -160,8 +160,10 @@
     </div>
     @stack('modals')
     <div id="ajax-modal"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="{{ asset('assets/js/bundle.js?ver=100') }}"></script>
 	<script src="{{ asset('assets/js/scripts.js?ver=100') }}"></script>
+
     @stack('footer')
 </body>
 </html>

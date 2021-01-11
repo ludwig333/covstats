@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\DemoCron::class,
+        Commands\CountriesCron::class,        
     ];
 
     /**
@@ -26,6 +27,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('demo:cron')
                  ->everyFiveMinutes();
+        $schedule->command('command:countries')
+                 ->daily();                 
     }
 
     /**

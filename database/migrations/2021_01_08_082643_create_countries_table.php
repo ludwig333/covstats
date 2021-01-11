@@ -18,15 +18,15 @@ class CreateCountriesTable extends Migration
             $table->string('code')->nullable(); 
             $table->string('name')->nullable();     
             $table->integer('cases')->nullable();      
-            $table->string('death')->nullable();   
-            $table->string('recovered')->nullable(); 
-            $table->string('today_cases')->nullable();     
+            $table->integer('death')->nullable();   
+            $table->integer('recovered')->nullable(); 
+            $table->integer('today_cases')->nullable();     
             $table->integer('today_death')->nullable();      
-            $table->string('today_recovered')->nullable();   
-            $table->string('active')->nullable(); 
-            $table->string('mild')->nullable();     
+            $table->integer('today_recovered')->nullable();   
+            $table->integer('active')->nullable(); 
+            $table->integer('mild')->nullable();     
             $table->integer('critical')->nullable();      
-            $table->string('update')->nullable();                                       
+            $table->integer('update')->nullable();                                       
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontEndController@index')->name('home');
 Route::get('/scrape', 'ScraperController@scrape')->name('scrape');
 Route::get('/countries', 'FrontEndController@countries')->name('countries');
+Route::post('/countries-ajax', 'FrontEndController@countries_ajax')->name('countries.ajax');
 Route::get('/country/{code}', 'FrontEndController@country_details')->name('country');
 Route::get('/country-details', 'FrontEndController@country_details')->name('country.details');
 

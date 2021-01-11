@@ -66,7 +66,8 @@
 	                    </div>
 	                    <div class="card-tools">
 	                        <ul class="card-tools-nav">
-	                            <li class="active"><span>Now</span></li>
+	                        	<li class="" id="yesterday"><a class="link" href="#">Yesterday</a></li>
+	                            <li class="active" id="today"><a class="link" href="#">Now</a></li>
 	                        </ul>
 	                    </div>
 	                </div>
@@ -100,7 +101,7 @@
 	                                <th class="nk-tb-col nk-tb-col-action nk-tb-col-nosort" data-priority="1"><span></span></th>
 	                            </tr>
 	                        </thead>
-	                        <tbody>
+	                        <tbody id="tbody">
 	                        @foreach($countries as $code => $locat)
                             	@if($code !='world' && $locat['cases'])
 
@@ -329,6 +330,63 @@
                 data: [{!! $graphs['world_timeline']->data['recovered'] !!}]
             }]
         };
+</script>
+<script type="text/javascript">
+	$( "#yesterday" ).click(function() {
+		event.preventDefault();
+		if(!$(this).hasClass( "active" )){
+			  	$(this).addClass('active');
+			  }
+		if($("#today").hasClass( "active" )){
+			  	$("#today").removeClass('active');
+			  }	
+
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ url('/countries-ajax') }}",
+                  method: 'post',
+                  data: {
+                     date: 'yesterday'
+                  },
+                  success: function(result){
+                     console.log(result.tbody);
+                    if(result.tbody) {
+                    $('#tbody').html(result.tbody);
+                }
+                  }});
+});
+
+	$( "#today" ).click(function() {
+		event.preventDefault();
+		if(!$(this).hasClass( "active" )){
+			  	$(this).addClass('active');
+			  }
+		if($("#yesterday").hasClass( "active" )){
+			  	$("#yesterday").removeClass('active');
+			  }	
+
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ url('/countries-ajax') }}",
+                  method: 'post',
+                  data: {
+                     date: 'today'
+                  },
+                  success: function(result){
+                     console.log(result.tbody);
+                    if(result.tbody) {
+                    $('#tbody').html(result.tbody);
+                }
+                  }});			  			  
+});	
 </script>
 @endif
 @endpush
