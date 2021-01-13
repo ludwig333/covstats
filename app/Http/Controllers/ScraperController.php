@@ -40,7 +40,7 @@ class ScraperController extends Controller
                 $vaccine = $node->filter('td:nth-child(4)')->each(function($node){
                     return $node->text();
                 });
-                $total_vaccinations = $node->filter('td:nth-child(5)')->each(function($node){
+                $total_vaccinations = $node->filter('td:nth-child(6)')->each(function($node){
                     return $node->text();
                 });     
                 $location = $location[0];
@@ -48,7 +48,6 @@ class ScraperController extends Controller
                 $vaccine = $vaccine[0];
                 $total_vaccinations = $total_vaccinations[0];  
                 $row = vaccination::where('location',$location)->first();
-
                 if(!empty($row)){
                     $vaccine_data = $row;
                     $vaccine_data->location = $location; 

@@ -68,13 +68,14 @@ class DemoCron extends Command
                 $vaccine = $node->filter('td:nth-child(4)')->each(function($node){
                     return $node->text();
                 });
-                $total_vaccinations = $node->filter('td:nth-child(5)')->each(function($node){
+                $total_vaccinations = $node->filter('td:nth-child(6)')->each(function($node){
                     return $node->text();
                 });     
                 $location = $location[0];
                 $date = $date[0];
                 $vaccine = $vaccine[0];
                 $total_vaccinations = $total_vaccinations[0];  
+
                 $row = vaccination::where('location',$location)->first();
 
                 if(!empty($row)){
