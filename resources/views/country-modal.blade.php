@@ -69,7 +69,7 @@
                                             <div class="nk-cov-data">
                                                 <h6 class="overline-title-alt fw-normal">TOTAL VACCINATED</h6>
 
-                                                <div class="amount amount-xs" style="color: darkgreen;">{{ number_format($vaccine) }}</div>
+                                                <div class="amount amount-xs" style="color: darkgreen;">@if($vaccine != ''){{ number_format($vaccine) }}@endif</div>
 
                                             </div>
                                         </div>
