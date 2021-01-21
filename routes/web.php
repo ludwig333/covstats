@@ -41,3 +41,14 @@ Route::get('/console', function () {
 	$Covid = new \App\Http\Controllers\CovidDataController;
 	dd($Covid->get_live_data());
 });
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
+Route::post('/upload-image', 'AdminController@upload_image')->name('upload-image');
+Route::get('/upload', 'AdminController@upload')->name('upload')->middleware('auth');;
+Route::get('/deleteimage/{id}', 'AdminController@deleteimage')->name('deleteimage');
+Route::post('/updateimage', 'AdminController@updateimage')->name('updateimage');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

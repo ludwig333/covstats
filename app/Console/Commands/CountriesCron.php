@@ -69,7 +69,7 @@ class CountriesCron extends Command
                     $country_data->save();                    
                     
                 }
-                \Log::info("Cron is working fine!");
+                
             } else {
                 $api_data = false;
             }

@@ -97,6 +97,6 @@ class DemoCron extends Command
             }); 
             array_push($array,$data);
         }
-         \Log::info("Cron is working fine!");
+         
     }
 }
