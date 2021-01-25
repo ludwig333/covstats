@@ -45,6 +45,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Redirect Url</label>
+                            <div class="form-control-wrap">
+                                <input type="text" name="url" class="form-control" id="default-01" placeholder="Input Url">
+                            </div>
+                        </div>                        
                         <button type="submit" class="btn btn-secondary">Submit</button>
                     </form>
                 </div>

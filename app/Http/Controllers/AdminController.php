@@ -37,6 +37,7 @@ class AdminController extends Controller
                     $banner = new banners();
                     $banner->page_name = $folderName; 
                     $banner->path = $folder_path.'/'.$fileName; 
+                    $banner->url = $request->url;
                     $banner->save();
                 }
 
@@ -47,9 +48,9 @@ class AdminController extends Controller
 
     public function updateimage(Request $request){
         $id = $request->id;
+        $banner = banners::where('id',$id)->first();
        if($request->hasFile('file')){ 
 
-                    $banner = banners::where('id',$id)->first();
                     if (File::exists($banner->path)) {
                         unlink($banner->path);
                     }
@@ -62,10 +63,9 @@ class AdminController extends Controller
                     $file->move(public_path($folder_path), $fileName);  
                     $banner->page_name = $folderName; 
                     $banner->path = $folder_path.'/'.$fileName; 
-                    $banner->save();
-
-
         }
+        $banner->url = $request->url; 
+        $banner->save();
         return back()
             ->with('success','You have successfully file uplaod.');         
     }

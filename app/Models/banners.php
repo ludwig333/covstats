@@ -29,7 +29,7 @@ class banners extends Model
 
     protected $fillable = [
 
-        'page_name','path'
+        'page_name','path','url','clicks'
 
     ];
 }

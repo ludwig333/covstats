@@ -201,6 +201,20 @@
                                                                     </div>
                                                                 </div>
                                                         </div>
+
+                                                        <div class="col-lg-5">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Redirect Url</label>
+                                                                <span class="form-note"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                                <div class="form-control-wrap">
+                                                                    <div class="custom-file">
+                                                                        <input type="text" name="url" class="form-control" value="{{$image->url}}" id="default-01" placeholder="Input Url">
+                                                                    </div>
+                                                                </div>
+                                                        </div>                                                        
                     </div>
                 </div>
                 <div class="modal-footer">

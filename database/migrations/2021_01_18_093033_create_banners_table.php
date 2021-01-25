@@ -17,6 +17,8 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->text('page_name')->nullable();
             $table->text('path')->nullable();
+            $table->text('url')->nullable();
+            $table->bigInteger('clicks')->nullable();
             $table->timestamps();
         });
     }
