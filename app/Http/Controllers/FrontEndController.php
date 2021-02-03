@@ -16,7 +16,7 @@ class FrontEndController extends Controller
         $CovidData = new CovidDataController();
         
         $last_update = $CovidData->last_update('M d, Y, H:i e');
-
+        
         $world = $CovidData->world();
         
         $countries = $CovidData->countries_data();

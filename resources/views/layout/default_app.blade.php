@@ -19,11 +19,11 @@
 			<div class="nk-sidebar nk-sidebar-short nk-sidebar-fixed" data-content="sidebarMenu">
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
-                        <a href="{{ route('home') }}" class="logo-link nk-sidebar-logo">
+                        <a href="{{ route('admin') }}" class="logo-link nk-sidebar-logo">
                             <img class="logo-light logo-img" src="{{ asset('images/logo.png') }}" srcset="{{ asset('images/logo2x.png 2x') }}" alt="">
                             <img class="logo-dark logo-img" src="{{ asset('images/logo-dark.png') }}" srcset="{{ asset('images/logo-dark2x.png 2x') }}" alt="">
                         </a>
-                        <a href="{{ route('home') }}" class="logo-link nk-sidebar-logo-small">
+                        <a href="{{ route('admin') }}" class="logo-link nk-sidebar-logo-small">
                             <img class="logo-light logo-img" src="{{ asset('images/logo-small.png') }}" srcset="{{ asset('images/logo-small2x.png 2x') }}" alt="">
                             <img class="logo-dark logo-img" src="{{ asset('images/logo-dark-small.png') }}" srcset="{{ asset('images/logo-dark-small2x.png 2x') }}" alt="">
                         </a>
